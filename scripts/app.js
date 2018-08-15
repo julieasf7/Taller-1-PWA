@@ -40,6 +40,7 @@
         }
         app.getSchedule(key, label);
         app.selectedTimetables.push({key: key, label: label});
+        app.saveSelectStations();
         app.toggleAddDialog(false);
     });
 
@@ -168,6 +169,11 @@
 
     };
 
+    // Save list of select stations 
+    app.saveSelectStations = function(){
+        var selectedTimetables = JSON.stringify(app.selectedTimetables);
+        localStorage.setItem('selectedTimetables', selectedTimetables);
+    }
 
     /************************************************************************
      *
@@ -180,8 +186,18 @@
      *   SimpleDB (https://gist.github.com/inexorabletash/c8069c042b734519680c)
      ************************************************************************/
 
-    app.getSchedule('metros/1/bastille/A', 'Bastille, Direction La Défense');
-    app.selectedTimetables = [
-        {key: initialStationTimetable.key, label: initialStationTimetable.label}
-    ];
+    app.selectedTimetables = localStorage.selectedTimetables;
+    if (app.selectedTimetables) {
+        app.selectedTimetables = JSON.parse(app.selectedTimetables);
+        app.selectedTimetables.forEach(function(schedule) {
+            app.getSchedule(schedule.key, schedule.label);
+        });
+    } else {
+        app.getSchedule('metros/1/bastille/A', 'Bastille, Direction La Défense');
+        app.selectedTimetables = [
+            {key: initialStationTimetable.key, label: initialStationTimetable.label}
+        ];
+        app.saveSelectStations();
+    }
+
 })();
