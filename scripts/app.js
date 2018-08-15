@@ -85,7 +85,17 @@
             app.container.appendChild(card);
             app.visibleCards[key] = card;
         }
-        card.querySelector('.card-last-updated').textContent = data.created;
+
+        var cardLastUpdatedElem = card.querySelector('.card-last-updated');
+        var cardLastUpdated = cardLastUpdatedElem.textContent;
+        if (cardLastUpdated) {
+            cardLastUpdated = new Date(cardLastUpdated);
+            if (dataLastUpdated.getTime() < cardLastUpdated.getTime()) {
+                return;
+            }
+        }
+
+        cardLastUpdatedElem.textContent = data.created;
 
         var scheduleUIs = card.querySelectorAll('.schedule');
         for(var i = 0; i<4; i++) {
@@ -112,6 +122,20 @@
 
     app.getSchedule = function (key, label) {
         var url = 'https://api-ratp.pierre-grimaud.fr/v3/schedules/' + key;
+
+        if ('caches' in window) {
+            caches.match(url).then(function(response) {
+                if (response) {
+                response.json().then(function updateFromCache(json) {
+                    var results = json.query.results;
+                    results.key = key;
+                    results.label = label;
+                    results.created = json.query.created;
+                    app.updateTimetableCard(results);
+                });
+                }
+            });
+        }
 
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () {
@@ -208,8 +232,12 @@
             ];
             app.saveSelectStations();
         }
-
-
     });
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+                    .register('./service-worker.js')
+                    .then(function() { console.log('Service Worker Registered'); });
+    }
 
 })();
