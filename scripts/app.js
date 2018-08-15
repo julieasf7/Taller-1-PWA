@@ -11,7 +11,6 @@
         addDialog: document.querySelector('.dialog-container')
     };
 
-
     /*****************************************************************************
      *
      * Event listeners for UI elements
@@ -143,6 +142,11 @@
         });
     };
 
+    // Save list of select stations 
+    app.saveSelectStations = function(){
+        var selectedTimetables = JSON.stringify(app.selectedTimetables);
+        localforage.setItem('selectedTimetables', selectedTimetables);
+    }
     /*
      * Fake timetable data that is presented when the user first uses the app,
      * or when the user has not saved any stations. See startup code for more
@@ -169,11 +173,6 @@
 
     };
 
-    // Save list of select stations 
-    app.saveSelectStations = function(){
-        var selectedTimetables = JSON.stringify(app.selectedTimetables);
-        localStorage.setItem('selectedTimetables', selectedTimetables);
-    }
 
     /************************************************************************
      *
@@ -186,18 +185,31 @@
      *   SimpleDB (https://gist.github.com/inexorabletash/c8069c042b734519680c)
      ************************************************************************/
 
-    app.selectedTimetables = localStorage.selectedTimetables;
-    if (app.selectedTimetables) {
-        app.selectedTimetables = JSON.parse(app.selectedTimetables);
-        app.selectedTimetables.forEach(function(schedule) {
-            app.getSchedule(schedule.key, schedule.label);
-        });
-    } else {
-        app.getSchedule('metros/1/bastille/A', 'Bastille, Direction La Défense');
-        app.selectedTimetables = [
-            {key: initialStationTimetable.key, label: initialStationTimetable.label}
-        ];
-        app.saveSelectStations();
-    }
+    localforage.config({
+        driver: [
+            localforage.INDEXEDDB,
+            localforage.WEBSQL,
+            localforage.LOCALSTORAGE
+        ],
+        name: 'WebSQL-Rox'
+    });
+
+    localforage.getItem('selectedTimetables', function(err, value){
+        app.selectedTimetables = value;
+        if (app.selectedTimetables) {
+            app.selectedTimetables = JSON.parse(app.selectedTimetables);
+            app.selectedTimetables.forEach(function(schedule) {
+                app.getSchedule(schedule.key, schedule.label);
+            });
+        } else {
+            app.getSchedule('metros/1/bastille/A', 'Bastille, Direction La Défense');
+            app.selectedTimetables = [
+                {key: initialStationTimetable.key, label: initialStationTimetable.label}
+            ];
+            app.saveSelectStations();
+        }
+
+
+    });
 
 })();
