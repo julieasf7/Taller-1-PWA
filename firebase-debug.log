@@ -1,0 +1,96 @@
+[debug] [2018-08-15T05:13:57.996Z] ----------------------------------------------------------------------
+[debug] [2018-08-15T05:13:58.002Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2018-08-15T05:13:58.002Z] CLI Version:   4.1.0
+[debug] [2018-08-15T05:13:58.002Z] Platform:      linux
+[debug] [2018-08-15T05:13:58.002Z] Node Version:  v10.8.0
+[debug] [2018-08-15T05:13:58.017Z] Time:          Wed Aug 15 2018 00:13:58 GMT-0500 (Colombia Standard Time)
+[debug] [2018-08-15T05:13:58.017Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-15T05:13:58.041Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-15T05:13:58.041Z] > authorizing via signed-in user
+[debug] [2018-08-15T05:13:58.043Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-08-15T05:13:58.043Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-08-15T05:13:58.338Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-15T05:13:58.369Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/taller-1-pwa  
+ 
+[debug] [2018-08-15T05:14:13.536Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-15T05:14:13.537Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/taller-1-pwa/tokens  
+ 
+[debug] [2018-08-15T05:14:14.297Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'taller-1-pwa'...
+[info] 
+[info] i  deploying hosting
+[debug] [2018-08-15T05:14:15.087Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/taller-1-pwa/versions  
+
+[debug] [2018-08-15T05:14:16.403Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-15T05:30:11.328Z] ----------------------------------------------------------------------
+[debug] [2018-08-15T05:30:11.339Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2018-08-15T05:30:11.340Z] CLI Version:   4.1.0
+[debug] [2018-08-15T05:30:11.340Z] Platform:      linux
+[debug] [2018-08-15T05:30:11.340Z] Node Version:  v10.8.0
+[debug] [2018-08-15T05:30:12.220Z] Time:          Wed Aug 15 2018 00:30:11 GMT-0500 (Colombia Standard Time)
+[debug] [2018-08-15T05:30:12.220Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-15T05:30:12.340Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-15T05:30:12.340Z] > authorizing via signed-in user
+[debug] [2018-08-15T05:30:12.352Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/taller-1-pwa  
+ 
+[debug] [2018-08-15T05:30:13.390Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-15T05:30:13.391Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/taller-1-pwa/tokens  
+ 
+[debug] [2018-08-15T05:30:14.135Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'taller-1-pwa'...
+[info] 
+[info] i  deploying hosting
+[debug] [2018-08-15T05:30:14.894Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/taller-1-pwa/versions  
+
+[debug] [2018-08-15T05:30:16.302Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-15T05:39:15.081Z] ----------------------------------------------------------------------
+[debug] [2018-08-15T05:39:15.083Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2018-08-15T05:39:15.083Z] CLI Version:   4.1.0
+[debug] [2018-08-15T05:39:15.083Z] Platform:      linux
+[debug] [2018-08-15T05:39:15.083Z] Node Version:  v10.8.0
+[debug] [2018-08-15T05:39:15.091Z] Time:          Wed Aug 15 2018 00:39:15 GMT-0500 (Colombia Standard Time)
+[debug] [2018-08-15T05:39:15.091Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-15T05:39:15.099Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-15T05:39:15.099Z] > authorizing via signed-in user
+[debug] [2018-08-15T05:39:15.101Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/taller-1-pwa  
+ 
+[debug] [2018-08-15T05:39:15.939Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-15T05:39:15.940Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/taller-1-pwa/tokens  
+ 
+[debug] [2018-08-15T05:39:16.698Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'taller-1-pwa'...
+[info] 
+[info] i  deploying hosting
+[debug] [2018-08-15T05:39:17.415Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/taller-1-pwa/versions  
+
+[debug] [2018-08-15T05:39:19.268Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-15T05:47:04.571Z] ----------------------------------------------------------------------
+[debug] [2018-08-15T05:47:04.572Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2018-08-15T05:47:04.573Z] CLI Version:   4.1.0
+[debug] [2018-08-15T05:47:04.573Z] Platform:      linux
+[debug] [2018-08-15T05:47:04.573Z] Node Version:  v10.8.0
+[debug] [2018-08-15T05:47:05.092Z] Time:          Wed Aug 15 2018 00:47:04 GMT-0500 (Colombia Standard Time)
+[debug] [2018-08-15T05:47:05.092Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-15T05:47:05.118Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-15T05:47:05.118Z] > authorizing via signed-in user
+[debug] [2018-08-15T05:47:05.120Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/taller-1-pwa  
+ 
+[debug] [2018-08-15T05:47:05.763Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-15T05:47:05.768Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/taller-1-pwa/tokens  
+ 
+[debug] [2018-08-15T05:47:07.434Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'taller-1-pwa'...
+[info] 
+[info] i  deploying hosting
+[debug] [2018-08-15T05:47:08.102Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/taller-1-pwa/versions  
+
+[debug] [2018-08-15T05:47:09.476Z] <<< HTTP RESPONSE 200
