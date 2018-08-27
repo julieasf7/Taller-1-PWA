@@ -107,6 +107,7 @@
         }
 
         if (app.isLoading) {
+            window.cardLoadTime = performance.now();
             app.spinner.setAttribute('hidden', true);
             app.container.removeAttribute('hidden');
             app.isLoading = false;
@@ -126,13 +127,14 @@
         if ('caches' in window) {
             caches.match(url).then(function(response) {
                 if (response) {
-                response.json().then(function updateFromCache(json) {
-                    var results = json.query.results;
-                    results.key = key;
-                    results.label = label;
-                    results.created = json.query.created;
-                    app.updateTimetableCard(results);
-                });
+                    response.json().then(function updateFromCache(json) {
+                        app.updateTimetableCard({
+                            key : key,
+                            label : label,
+                            created : json._metadata.date,
+                            schedules : json.result.schedules
+                        });
+                    });
                 }
             });
         }
@@ -237,7 +239,9 @@
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
                     .register('./service-worker.js')
-                    .then(function() { console.log('Service Worker Registered'); });
+                    .then(function() { 
+                        console.log('Service Worker Registered'); 
+                    });
     }
 
 })();
